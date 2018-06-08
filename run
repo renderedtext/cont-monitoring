@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+export SESSION_COOKIE_NAME="_semaphoreci_2_0_prod_session"
+
+if [ -z $SESSION_COOKIE_VALUE ]; then
+  echo "SESSION_COOKIE_NAME is not exported"
+  exit 1
+fi
+
+#
+# Setting up Firefox.
+#
+
+echo "Initializing Firefox cookie DB"
+timeout 30 firefox https://google.com || true
+
+echo "Inject session cookie into Firefox cookie DB"
+sqlite3 ~/.mozilla/firefox/*.default/cookies.sqlite 'insert into moz_cookies (expiry, baseDomain, host, name, value) values (1517871990791021, "semaphoreci.com", "id.semaphoreci.com", "_semaphoreci_2_0_prod_session", "'$SESSION_COOKIE_VALUE'")'
+
+#
+# Running Monitoring scripts in Parallel
+#
+
+bash pipeline_page.sh &
+bash branch_page.sh &
+bash job_page.sh &
+bash live_log.sh &
+
+# Sleep and let the scripts test and poll
+
+sleep 3600
