@@ -9,5 +9,5 @@ blocks:
           commands:
             - "export SEMAPHORE_CACHE_DIR=/tmp"
             - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
-            - checkout && ~/cont-monitoring
+            - checkout && cd ~/cont-monitoring
             - ./run
