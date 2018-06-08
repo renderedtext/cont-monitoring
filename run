@@ -10,7 +10,7 @@ if [ -z $SESSION_COOKIE_VALUE ]; then
 fi
 
 #
-# Setting up Firefox.
+# Setting up Firefox cookies.
 #
 
 echo "Initializing Firefox cookie DB"
