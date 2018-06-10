@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 export SESSION_COOKIE_NAME="_semaphoreci_2_0_prod_session"
 
 if [ -z $SESSION_COOKIE_VALUE ]; then
@@ -10,24 +8,25 @@ if [ -z $SESSION_COOKIE_VALUE ]; then
 fi
 
 #
-# Setting up Firefox cookies.
+# Follow live log in the background
 #
-
-echo "Initializing Firefox cookie DB"
-timeout 30 firefox https://google.com || true
-
-echo "Inject session cookie into Firefox cookie DB"
-sqlite3 ~/.mozilla/firefox/*.default/cookies.sqlite 'insert into moz_cookies (expiry, baseDomain, host, name, value) values (1517871990791021, "semaphoreci.com", "id.semaphoreci.com", "_semaphoreci_2_0_prod_session", "'$SESSION_COOKIE_VALUE'")'
+bash src/live_log.sh &
+sleep 10
 
 #
-# Running Monitoring scripts in Parallel
+# Open important pages continuosly
 #
 
-bash pipeline_page.sh &
-bash branch_page.sh &
-bash job_page.sh &
-bash live_log.sh &
+while true; do
+  # Generate output
+  bash src/generate_output.sh
 
-# Sleep and let the scripts test and poll
+  # Visit pages
+  bash src/org_page.sh
+  bash src/project_page.sh
+  bash src/branch_page.sh
+  bash src/pipeline_page.sh
+  bash src/job_page.sh
 
-sleep 3600
+  sleep 10
+done
