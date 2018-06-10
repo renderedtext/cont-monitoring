@@ -42,5 +42,7 @@ while true; do
   bash job_page.sh
   bash pipeline_page.sh
   bash branch_page.sh
+
+  sleep 10
 done
 
