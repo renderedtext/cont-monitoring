@@ -23,10 +23,10 @@ sqlite3 ~/.mozilla/firefox/*.default/cookies.sqlite 'insert into moz_cookies (ex
 # Running Monitoring scripts in Parallel
 #
 
-bash pipeline_page.sh &
-bash branch_page.sh &
+# bash pipeline_page.sh &
+# bash branch_page.sh &
 bash job_page.sh &
-bash live_log.sh &
+# bash live_log.sh &
 
 # Sleep and let the scripts test and poll
 
