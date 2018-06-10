@@ -22,9 +22,10 @@ while true; do
   bash src/generate_output.sh
 
   # Visit pages
-  bash src/job_page.sh
-  bash src/pipeline_page.sh
+  bash src/project_page.sh
   bash src/branch_page.sh
+  bash src/pipeline_page.sh
+  bash src/job_page.sh
 
   sleep 10
 done
