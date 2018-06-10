@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 export SESSION_COOKIE_NAME="_semaphoreci_2_0_prod_session"
 
 if [ -z $SESSION_COOKIE_VALUE ]; then
@@ -20,14 +18,29 @@ echo "Inject session cookie into Firefox cookie DB"
 sqlite3 ~/.mozilla/firefox/*.default/cookies.sqlite 'insert into moz_cookies (expiry, baseDomain, host, name, value) values (1517871990791021, "semaphoreci.com", "id.semaphoreci.com", "_semaphoreci_2_0_prod_session", "'$SESSION_COOKIE_VALUE'")'
 
 #
-# Running Monitoring scripts in Parallel
+# Follow live log in the background
+#
+bash live_log.sh &
+
+#
+# Open important pages continuosly
 #
 
-# bash pipeline_page.sh &
-# bash branch_page.sh &
-bash job_page.sh &
-# bash live_log.sh &
+while true; do
+  # Generate some random output on the Job Page
+  echo -e "Random output with some colors \e[31mRED\e[0m \e[32mGREEN\e[0m"
+  echo -e "newlines"
+  echo -e "  indentations"
+  echo -e "and some weird Japanese characters. ありがとうございます"
+  echo -ne '#####                     (33%)\r'
+  sleep 1
+  echo -ne '#############             (66%)\r'
+  sleep 1
+  echo -ne '#######################   (100%)\r'
+  echo -ne '\n'
 
-# Sleep and let the scripts test and poll
+  bash job_page
+  bash pipeline_page.sh
+  bash branch_page.sh
+done
 
-sleep 3600
