@@ -18,6 +18,9 @@ while true; do
   #
   # Open the page.
   #
+  echo "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE"
+  echo "$page_url"
+
   curl -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url"
 
   #
