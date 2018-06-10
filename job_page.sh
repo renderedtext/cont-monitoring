@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "==============================================================="
+echo ""
+echo ""
+
 page_url="https://renderedtext.semaphoreci.com/jobs/$SEMAPHORE_JOB_ID"
 
 echo "Opening Job Page"

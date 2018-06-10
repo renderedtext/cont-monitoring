@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "==============================================================="
+echo ""
+echo ""
+
 set -euo pipefail
 
 url="https://renderedtext.semaphoreci.com/pipelines/$SEMAPHORE_PIPELINE_ID"

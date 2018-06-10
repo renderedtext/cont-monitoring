@@ -39,7 +39,7 @@ while true; do
   echo -ne '#######################   (100%)\r'
   echo -ne '\n'
 
-  bash job_page
+  bash job_page.sh
   bash pipeline_page.sh
   bash branch_page.sh
 done
