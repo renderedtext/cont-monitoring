@@ -8,19 +8,10 @@ if [ -z $SESSION_COOKIE_VALUE ]; then
 fi
 
 #
-# Setting up Firefox cookies.
-#
-
-echo "Initializing Firefox cookie DB"
-timeout 5 firefox https://google.com || true
-
-echo "Inject session cookie into Firefox cookie DB"
-sqlite3 ~/.mozilla/firefox/*.default/cookies.sqlite 'insert into moz_cookies (expiry, baseDomain, host, name, value) values (1517871990791021, "semaphoreci.com", "id.semaphoreci.com", "_semaphoreci_2_0_prod_session", "'$SESSION_COOKIE_VALUE'")'
-
-#
 # Follow live log in the background
 #
-bash live_log.sh &
+bash src/live_log.sh &
+sleep 10
 
 #
 # Open important pages continuosly
@@ -28,13 +19,12 @@ bash live_log.sh &
 
 while true; do
   # Generate output
-  bash generate_output.sh
+  bash src/generate_output.sh
 
   # Visit pages
-  bash job_page.sh
-  bash pipeline_page.sh
-  bash branch_page.sh
+  bash src/job_page.sh
+  bash src/pipeline_page.sh
+  bash src/branch_page.sh
 
   sleep 10
 done
-

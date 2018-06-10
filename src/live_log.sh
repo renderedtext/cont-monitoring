@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "---------------------------------"
+echo "Live Log Follower"
+echo "---------------------------------"
+
 # The idea behind continiouosly monitoring the jobs page is to run a tests every
 # hour, that prints a bunch of output for a whole hour.
 #

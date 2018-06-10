@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "---------------------------------"
+echo "Output Generator"
+echo "---------------------------------"
+
 echo -e "Random output with some colors \e[31mRED\e[0m \e[32mGREEN\e[0m"
 echo -e "newlines"
 echo -e "  indentations"
