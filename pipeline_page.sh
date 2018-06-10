@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 
-echo "==============================================================="
-echo ""
-echo ""
+set -x
 
-set -euo pipefail
+echo "---------------------------------"
+echo "Pipeline Page"
+echo "---------------------------------"
 
-url="https://renderedtext.semaphoreci.com/pipelines/$SEMAPHORE_PIPELINE_ID"
+page_url="https://renderedtext.semaphoreci.com/pipelines/$SEMAPHORE_PIPELINE_ID"
 
-echo "Opening $url"
-firefox -headless "$url" &
-echo "Polling over Pipeline is about to start..."
-
-sleep 10
-kill $(pidof firefox)
-echo "Killed firefox"
+curl -sSL -D - -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url" -o /dev/null

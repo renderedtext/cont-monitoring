@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -x
 
-echo "==============================================================="
-echo ""
-echo ""
+echo "---------------------------------"
+echo "Branch Page"
+echo "---------------------------------"
 
-url="https://renderedtext.semaphoreci.com/branches/$SEMAPHORE_BRANCH_ID"
+page_url="https://renderedtext.semaphoreci.com/branches/$SEMAPHORE_BRANCH_ID"
 
-echo "Opening $url"
-firefox -headless "$url" &
-echo "Polling over Branch is about to start..."
-
-sleep 10
-kill $(pidof firefox)
-echo "Killed firefox"
+curl -sSL -D - -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url" -o /dev/null

@@ -8,7 +8,7 @@
 #
 # The JobPage and Loghub have internal metrics that we can follow.
 
-page_url="https://renderedtext.semaphoreci.com/jobs/$SEMAPHORE_JOB_UUID"
+page_url="https://renderedtext.semaphoreci.com/jobs/$SEMAPHORE_JOB_ID"
 
 echo "Opening $page_url"
 
