@@ -18,10 +18,10 @@ while true; do
   #
   # Open the page.
   #
-  curl -s -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url" > /dev/null
+  curl -s -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url"
 
   #
   # Fetch the logs.
   #
-  curl -s -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url/logs" > /dev/null
+  curl -s -H "Cookie: $SESSION_COOKIE_NAME=$SESSION_COOKIE_VALUE" "$page_url/logs"
 done
