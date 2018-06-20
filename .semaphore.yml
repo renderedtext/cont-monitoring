@@ -4,6 +4,10 @@ semaphore_image: standard
 blocks:
   - name: "Stage A"
     build:
+      secrets:
+        - name: cont-monitor-secrets
+          env_var_names:
+            - SESSION_COOKIE_VALUE
       jobs:
         - name: Pipeline Page
           commands:
