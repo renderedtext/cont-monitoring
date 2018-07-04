@@ -4,7 +4,7 @@ echo "---------------------------------"
 echo "Job Page"
 echo "---------------------------------"
 
-page_url="https://renderedtext.semaphoreci.com/jobs/$SEMAPHORE_JOB_ID"
+page_url="https://${ORGANIZATION_USERNAME}.semaphoreci.com/jobs/$SEMAPHORE_JOB_ID"
 
 set -x
 
