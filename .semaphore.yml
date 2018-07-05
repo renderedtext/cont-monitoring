@@ -7,6 +7,8 @@ blocks:
       env_vars:
       - name: SESSION_COOKIE_VALUE
         value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTY2Zjg5MWExZTRmOWY0ODQ5ZmRjNWUwYTZmMWRjYTIwBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMUo2TGNNOVIrYkl1L2RSVXBZckhaSUFxVnVERm9PVmxieHNqcjlORUFMRms9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--9206c2b68b5a1a71d3c6fed57a00702726b4da36
+      - name: ORGANIZATION_USERNAME
+        value: semaphore
       jobs:
         - name: Pipeline Page
           commands:
