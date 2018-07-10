@@ -22,6 +22,9 @@ while true; do
   bash src/generate_output.sh
 
   # Visit pages
+  bash src/id_page.sh
+  bash src/me_page.sh
+  bash src/people_page.sh
   bash src/org_page.sh
   bash src/project_page.sh
   bash src/branch_page.sh
