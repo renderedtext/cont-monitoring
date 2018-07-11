@@ -1,0 +1,160 @@
+version: "v1.0-beta-task"
+name: UI Continious Monitoring
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1404
+
+# We have 10 blocks. Each block does the same thing, visits pages.
+# The reason for having 10 blocks is to continiously (every 5 mins) trigger build and jobs creation.
+
+blocks:
+  - name: "Cycle 1"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 1"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 2"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 2"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 3"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 3"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 4"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 4"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 5"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 5"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 6"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 6"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 7"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 7"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 8"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 8"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 9"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 9"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
+
+  - name: "Cycle 10"
+    task:
+      env_vars:
+        - name: SESSION_COOKIE_VALUE
+          value: BAh7CUkiD3Nlc3Npb25faWQGOgZFVEkiJTAyZjE5ODAyZTExOWFlNzkxNzI0ODA1ODE0ZDJkMTE3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXEvNnUwZytBWVVxa0xRNVZZdzgwa2NNVExYZ1NsV1VKS2pGWTRzMUdXVFU9BjsARkkiGXdhcmRlbi51c2VyLnVzZXIua2V5BjsAVFsHWwZJIikzNjlhOTk2NC02NjViLTQyM2ItYTY0My01ZmI0MDYwM2MyNGIGOwBUSSIiJDJhJDEwJDFadHZkUWQvR09rcDR5TnUwbndCTU8GOwBUSSIVc3VwcG9ydF9yZWZlcnJlcgY7AEYiIGh0dHBzOi8vaWQuc2VtYXBob3JlY2kuY29tLw%3D%3D--8439c6e480a11340c11b0a6cf46562295eb6e9b5
+        - name: ORGANIZATION_USERNAME
+          value: semaphore
+      jobs:
+      - name: "Cycle 10"
+        commands:
+          - "export SEMAPHORE_CACHE_DIR=/tmp"
+          - "curl -L https://gist.githubusercontent.com/ervinb/84ddaf56640059f25d18/raw/b2116de1d968d73e082545c4114317e345f93b3f/firefox-semaphore.sh | bash -s 56.0"
+          - checkout && cd ~/cont-monitoring
+          - timeout 300 ./run
