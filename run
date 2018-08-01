@@ -2,7 +2,7 @@
 
 export SESSION_COOKIE_NAME="_semaphoreci_2_0_prod_session"
 
-if [ -z $SESSION_COOKIE_VALUE ]; then
+if [ -z $SESSION_COOKIE ]; then
   echo "SESSION_COOKIE_NAME is not exported"
   exit 1
 fi
