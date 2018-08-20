@@ -29,7 +29,6 @@ while true; do
   bash src/org_page.sh
   bash src/project_page.sh
   bash src/branch_page.sh
-  bash src/pipeline_page.sh
   bash src/job_page.sh
 
   sleep 10
