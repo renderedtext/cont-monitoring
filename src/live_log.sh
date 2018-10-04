@@ -12,7 +12,7 @@ echo "---------------------------------"
 #
 # The JobPage and Loghub have internal metrics that we can follow.
 
-page_url="https://semaphore.semaphoreci.com/jobs/9c7ade07-a287-4e53-9811-b7cc9a3ffc84"
+page_url="https://semaphore.semaphoreci.com/jobs/6aa002d4-2f0b-464d-8ca4-9ff7b2181e7e"
 
 echo "Opening $page_url"
 
