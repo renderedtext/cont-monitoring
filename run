@@ -25,6 +25,7 @@ while true; do
   bash src/id_page.sh
   bash src/me_pages.sh
   bash src/new_org_page.sh
+  bash src/home_page.sh
   bash src/org_page.sh
   bash src/dashboard_page.sh
   bash src/project_pages.sh
