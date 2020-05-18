@@ -11,3 +11,5 @@ The project whose pages are visited is the
 
 Every visit to a page generates metrics in the backend. Based on this metrics we
 can observe the health of the system, and trigger alerts in case of issues.
+
+
