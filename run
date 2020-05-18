@@ -36,5 +36,5 @@ while true; do
   bash src/org_page.sh
   bash src/people_page.sh
 
-  sleep 60
+  sleep 5
 done
