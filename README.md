@@ -1,7 +1,6 @@
 # Continuous Monitoring for Semaphore2
 
-[![Build
-Status](https://semaphoreci.com/api/v1/renderedtext/cont-monitoring/branches/master/badge.svg)](https://semaphoreci.com/renderedtext/cont-monitoring)
+[![Build Status](https://semaphore.semaphoreci.com/badges/cont-monitoring-eins/branches/set-up-semaphore.svg?style=shields)](https://semaphore.semaphoreci.com/projects/cont-monitoring-eins)
 
 The idea is to run a job every hour that simulates visits all vital pages on
 Semaphore2. This is managed by Semaphore 1 Build Scheduler.
